@@ -13,7 +13,7 @@ TOKEN = getenv('BOT_TOKEN')
 async def main() -> None:
     bot = Bot(TOKEN, parse_mode=ParseMode.MARKDOWN)
 
-    storage = RedisStorage.from_url(getenv('REDIS_URL'))
+    storage = RedisStorage.from_url(getenv('REDIS_URL', 'redis://127.0.0.1:6379'))
 
     dp = Dispatcher(storage=storage)
     dp.include_router(main_prepare_router())
