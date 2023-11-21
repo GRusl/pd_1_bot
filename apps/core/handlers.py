@@ -5,7 +5,8 @@ class BaseHandler(BaseHandlerAiogram):
     async def handle(self) -> None:
         data = {
             'user': self.data['event_from_user'],
-            'state': self.data['state']
+            'state': self.data['state'],
+            'message': self.data['event_update'].message
         }
 
         user_id = self.data['event_from_user'].id
@@ -15,7 +16,7 @@ class BaseHandler(BaseHandlerAiogram):
         Администратор может быть клиентом или психологом,
         но психолог не может быть клиентом
         """
-        if user_id in [...]:  # Если пользователь администратор
+        if user_id in [1214647877, ...]:  # Если пользователь администратор
             await self.handle_admin(**data)
 
         if user_id in [...]:  # Если пользователь психолог
