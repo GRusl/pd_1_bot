@@ -6,8 +6,9 @@ from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 
 from apps.main.routers import prepare_router as main_prepare_router
+from apps.admin.routers import prepare_router as admin_prepare_router
 
-TOKEN = getenv('BOT_TOKEN', '6988500207:AAFycbly-2ydY-0GAJ_5fC0YkDXRzyjkrgM')
+TOKEN = getenv('BOT_TOKEN')
 
 
 async def main() -> None:
@@ -17,6 +18,7 @@ async def main() -> None:
 
     dp = Dispatcher(storage=storage)
     dp.include_router(main_prepare_router())
+    dp.include_router(admin_prepare_router())
 
     await dp.start_polling(bot)
 
