@@ -5,8 +5,8 @@ from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 
-from apps.models import init
 from apps.main.routers import prepare_router as main_prepare_router
+from db import init
 
 TOKEN = getenv('BOT_TOKEN', '6988500207:AAFycbly-2ydY-0GAJ_5fC0YkDXRzyjkrgM')
 

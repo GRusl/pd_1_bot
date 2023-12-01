@@ -3,17 +3,6 @@ from tortoise import Tortoise, fields
 from tortoise.models import Model
 
 
-async def init():
-    await Tortoise.init(
-        db_url='sqlite://db.sqlite3',
-        modules={'models': ['app.models']}
-    )
-    try:
-        await Tortoise.generate_schemas()
-    except:
-        print("Schemas already exist!")
-
-
 class Admin(Model):
     id = fields.IntField(pk=True)
     username = fields.CharField(max_length=256)
