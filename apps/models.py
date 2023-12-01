@@ -8,7 +8,10 @@ async def init():
         db_url='sqlite://db.sqlite3',
         modules={'models': ['app.models']}
     )
-    await Tortoise.generate_schemas()
+    try:
+        await Tortoise.generate_schemas()
+    except:
+        print("Schemas already exist!")
 
 
 class Admin(Model):
